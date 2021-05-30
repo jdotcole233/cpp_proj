@@ -5,7 +5,7 @@ using namespace std;
 #define MAX_BUS_SIZE 50
 
 struct Result {
-    unsigned int bus_count;
+    unsigned int bus_count = 1;
     unsigned int free_seats;
 }; 
 
@@ -26,6 +26,7 @@ Result compute_bus_capcity(unsigned int passengers_available) {
 int main (int args, char ** argv) {
 
     unsigned int total_passengers;
+    Result result;
 
     cout << "BUS SOFTWARE\n";
     cout << "This application has been designed to help you estimate the number of buses your company will\n";
@@ -34,7 +35,7 @@ int main (int args, char ** argv) {
     cout << "Enter total passengers available at your station: ";
     cin >> total_passengers;
 
-    Result result = compute_bus_capcity(total_passengers);
+    result = compute_bus_capcity(total_passengers);
 
     cout << "Your company will need " << result.bus_count << " buses to convey " << total_passengers << " passengers. \n";
     cout << "The last bus will have " << result.free_seats << " availbale.\n";
