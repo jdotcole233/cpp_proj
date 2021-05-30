@@ -7,22 +7,9 @@ using namespace std;
 struct Result {
     unsigned int bus_count = 1;
     unsigned int free_seats;
-}; 
+};
 
-Result compute_bus_capcity(unsigned int passengers_available) {
-    Result result;
-    
-    while (MAX_BUS_SIZE % passengers_available > 0 && passengers_available > MAX_BUS_SIZE)
-    {
-        passengers_available -= MAX_BUS_SIZE;
-        result.bus_count++;
-    }
-    result.free_seats = MAX_BUS_SIZE % passengers_available;
-
-    return  result;
-}
-
-
+Result compute_bus_capcity(unsigned int passengers_available);
 
 int main (int args, char ** argv) {
 
@@ -42,4 +29,18 @@ int main (int args, char ** argv) {
     cout << "\tThe last bus will have " << result.free_seats << " availbale.\n";
 
     return 0;
+}
+
+Result compute_bus_capcity(unsigned int passengers_available)
+{
+    Result result;
+
+    while (MAX_BUS_SIZE % passengers_available > 0 && passengers_available > MAX_BUS_SIZE)
+    {
+        passengers_available -= MAX_BUS_SIZE;
+        result.bus_count++;
+    }
+    result.free_seats = MAX_BUS_SIZE % passengers_available;
+
+    return result;
 }
