@@ -4,14 +4,16 @@ using namespace std;
 
 #define MAX_BUS_SIZE 50
 
-struct Result {
+struct Result
+{
     unsigned int bus_count = 1;
     unsigned int free_seats;
 };
 
 Result compute_bus_capcity(unsigned int passengers_available);
 
-int main (int args, char ** argv) {
+int main(int args, char **argv)
+{
 
     unsigned int total_passengers;
     Result result;
@@ -34,7 +36,6 @@ int main (int args, char ** argv) {
 Result compute_bus_capcity(unsigned int passengers_available)
 {
     Result result;
-
     while (MAX_BUS_SIZE % passengers_available > 0 && passengers_available > MAX_BUS_SIZE)
     {
         passengers_available -= MAX_BUS_SIZE;
